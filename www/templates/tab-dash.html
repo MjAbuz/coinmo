@@ -4,22 +4,43 @@
           <h1>Coinmo</h1>
       </div>
 
-      <div class="list centered">
-          <label class="item item-input">
-              <input type="text" placeholder="Name" class="">
-          </label>
-          <label class="item item-input">
-              <input type="tel" placeholder="Phone Number">
-          </label>
-          <label class="item item-input">
-              <input type="password" placeholder="Password">
-          </label>
-      </div>
-      <div class="row responsive-sm">
-          <button class="button button-positive">
-              Sign Up
-          </button>
-      </div>
+
+      <form name="signup_form" ng-submit="vm.submit()" novalidate>
+          <div class="list centered">
+              <label class="item item-input">
+                  <input
+                      type="text"
+                      placeholder="Name"
+                      class=""
+                      ng-model="vm.signupForm.name"
+                      ng-minlength="3"
+                      required >
+              </label>
+              <label class="item item-input">
+                  <input
+                      type="tel"
+                      placeholder="Phone Number"
+                      ng-model="vm.signupForm.phone"
+                      required>
+              </label>
+              <label class="item item-input">
+                  <input
+                      type="password"
+                      placeholder="Password"
+                      ng-model="vm.signupForm.password"
+                      required>
+              </label>
+          </div>
+          <div class="error" ng-messages="signup_form.name.$error"></div>
+          <div ng-message="required">
+              Make sure you enter your name
+          </div>
+          <div class="row responsive-sm">
+              <button type="submit" class="button button-positive">
+                  Sign Up
+              </button>
+          </div>
+      </form>
 
   </ion-content>
 </ion-view>
