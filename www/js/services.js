@@ -1,5 +1,5 @@
 var baseUrl = 'http://thecoinmoapi.herokuapp.com';
-// for local use http://localhost:3000
+//var baseUrl = 'http://localhost:3000';
 
 
 angular.module('starter.services', [])
