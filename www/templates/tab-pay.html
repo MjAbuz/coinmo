@@ -6,22 +6,17 @@
 
     <div id="payPage">
 
-	  <ion-list>
-	    <ion-item ng-repeat="friend in vm.friends" type="item-text-wrap" href="#/tab/pay/{{friend.id}}">
-	      {{friend.name}}
-	    </ion-item>
-	  </ion-list>
-
 	  <div class = "row">
 	  	<div class = "col col-60">
 	  		<label class="item item-input">
-	    		<input type="text" placeholder="Phone or Name" ng-click="pickContact()" ng-model="selectedContact.displayName">
+	    		<input type="text" placeholder="Phone or Name" ng-click="pickContact()" ng-model="transaction.contact.displayName">
 	  		</label>
-            {{ selectedContact }}
+            {{ transaction }}
 	  	</div>
 	  	<div class = "col">
 	  		<label class="item item-input">
-	    		 <input type="tel" placeholder="0.0">
+                 <i class="icon ion-social-usd placeholder-icon"></i>
+	    		 <input type="number" placeholder="0.0" ng-model="transaction.amount" class="amount-input">
 	  		</label>
 	  	</div>
 	  </div>
@@ -29,7 +24,7 @@
 	  <div class = "row">
 	  	<div class = "col">
 	  		<label class="item item-input">
-	    		 <input type="text" placeholder="Write something Funny!">
+	    		 <input type="text" placeholder="Write something Funny!" ng-model="transaction.notes">
 	    	<br><br><br><br><br>
 	  		</label>
 	  	</div>
