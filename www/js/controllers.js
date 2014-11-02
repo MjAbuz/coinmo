@@ -13,18 +13,28 @@ angular.module('starter.controllers', [])
     console.log('submit')
     console.log($scope.signupForm)
 
-    AuthFactory.register($scope.signupForm)
-      .then(function(data){
-        console.log('Yay successfully registered ', data)
-        $state.go('tab.account')
+    if ($scope.signup_form.$valid){
+      AuthFactory.register($scope.signupForm)
+        .then(function(res){
+          console.log('got response', res);
 
-      }, function(){
+          if(res.error){
+            $scope.serverError = res.error;
 
-        console.log('Did not work :/')
-      })
+          } else {
+            console.log('Yay successfully registered ', res)
+            $state.go('tab.account')
+          }
 
+        }, function(){
 
+          console.log('Did not work :/')
+        })
 
+    } else {
+      $scope.signup_form.submitted = true;
+      console.log('form invalid');
+    }
   }
 
 })
