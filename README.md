@@ -13,5 +13,8 @@ To install and run this project, follow the below steps:
 ####2. Install Cordova Ionic  
 `npm install -g cordova ionic`
 
-####3. Start Ionic Server
+####3. Npm Install components
+`npm install`
+
+####4. Start Ionic Server
 `ionic serve`
