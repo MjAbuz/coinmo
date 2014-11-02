@@ -48,4 +48,8 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {
 
     $scope.user = { balance: 0.15, name: 'Jono Kassan', quid: 999993 }
+})
+
+.controller('HistoryCtrl', function($scope) {
+
 });

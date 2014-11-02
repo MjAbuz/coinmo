@@ -76,7 +76,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'AccountCtrl'
         }
       }
+    })
+
+    .state('history', {
+      url: '/history',
+      views: {
+        '': {
+          templateUrl: 'templates/history.html',
+          controller: 'HistoryCtrl'
+        }
+      }
     });
+
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
