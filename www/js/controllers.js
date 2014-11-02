@@ -1,7 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('RegistrationCtrl', function($scope, AuthFactory, $state) {
+.controller('RegistrationCtrl', function($scope, AuthFactory, SessionFactory, $state) {
   $scope.signupForm = {};
+  $scope.currentUser = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
   console.log("hi");
   console.log($scope.signupForm);
   $scope.register = register;
@@ -23,6 +24,8 @@ angular.module('starter.controllers', [])
 
           } else {
             console.log('Yay successfully registered ', res)
+            $scope.signupForm.guid = res.guid;
+            SessionFactory.createSession($scope.signupForm);
             $state.go('tab.account')
           }
 

@@ -1,65 +1,67 @@
 <ion-view title="Dashboard" class="">
   <ion-content class="">
       <div class="row">
-          <h1>Welcome to Coin</h1>
+          <h1>Welcome {{ currentUser ? 'back' : '' }} to Coin {{ currentUser.name }}</h1>
       </div>
 
+      <div ng-hide="currentUser">
+          <form name="signup_form"
+                ng-submit="register()"
+                novalidate
+                 >
 
-
-      <form name="signup_form"
-            ng-submit="register()"
-            novalidate
-            ng-controller="RegistrationCtrl"  >
-
-          <div class="list centered">
-              <label class="item item-input">
-                  <input
-                      type="text"
-                      placeholder="Name"
-                      name="name"
-                      class=""
-                      ng-model="signupForm.name"
-                      required >
-              </label>
-              <label class="item item-input">
-                  <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Phone Number"
-                      ng-model="signupForm.phone"
-                      required>
-              </label>
-              <label class="item item-input">
-                  <input
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      ng-model="signupForm.password"
-                      required>
-              </label>
-          </div>
-          <div class="row responsive-sm" ng-show="signup_form.submitted && signup_form.$invalid">
-              <div class="card card-error">
-                  <div class="error" ng-show="signup_form.name.$error.required"> Name is Required</div>
-                  <div class="error" ng-show="signup_form.phone.$error.required"> Phone Number is Required</div>
-                  <div class="error" ng-show="signup_form.password.$error.required"> Password is Required </div>
+              <div class="list centered">
+                  <label class="item item-input">
+                      <input
+                              type="text"
+                              placeholder="Name"
+                              name="name"
+                              class=""
+                              ng-model="signupForm.name"
+                              required >
+                  </label>
+                  <label class="item item-input">
+                      <input
+                              type="tel"
+                              name="phone"
+                              placeholder="Phone Number"
+                              ng-model="signupForm.phone"
+                              required>
+                  </label>
+                  <label class="item item-input">
+                      <input
+                              type="password"
+                              name="password"
+                              placeholder="Password"
+                              ng-model="signupForm.password"
+                              required>
+                  </label>
               </div>
-          </div>
-          <div class="row responsive-sm" ng-show="serverError">
-              <div class="card card-error">
-                  <div class="error"> {{ serverError }}</div>
+              <div class="row responsive-sm" ng-show="signup_form.submitted && signup_form.$invalid">
+                  <div class="card card-error">
+                      <div class="error" ng-show="signup_form.name.$error.required"> Name is Required</div>
+                      <div class="error" ng-show="signup_form.phone.$error.required"> Phone Number is Required</div>
+                      <div class="error" ng-show="signup_form.password.$error.required"> Password is Required </div>
+                  </div>
               </div>
-          </div>
+              <div class="row responsive-sm" ng-show="serverError">
+                  <div class="card card-error">
+                      <div class="error"> {{ serverError }}</div>
+                  </div>
+              </div>
 
 
-          <div class="row responsive-sm">
-              <button type="submit"
-                      class="button button-positive"
-                        >
-                  Sign Up
-              </button>
-          </div>
-      </form>
+              <div class="row responsive-sm">
+                  <button type="submit"
+                          class="button button-positive"
+                          >
+                      Sign Up
+                  </button>
+              </div>
+          </form>
+
+      </div>
+
 
   </ion-content>
 </ion-view>
