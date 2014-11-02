@@ -2865,11 +2865,11 @@ a.subdued {
     overflow: hidden;
     margin: 0 10px;
     min-width: 30px;
-    height: 43px;
+    height: 54px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 44px; }
     .bar .title.title-left {
       text-align: left; }
@@ -3653,8 +3653,8 @@ a.subdued {
 .tab-item .icon {
   display: block;
   margin: 0 auto;
-  height: 32px;
-  font-size: 32px; }
+  height: 48px;
+  font-size: 48px; }
 
 .tabs-icon-left.tabs .tab-item, .tabs-icon-left > .tabs .tab-item, .tabs-icon-right.tabs .tab-item, .tabs-icon-right > .tabs .tab-item {
   font-size: 12px; }
@@ -5116,13 +5116,13 @@ input, button, select, textarea {
 
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: block;
-  padding-top: 2px;
+  padding-top: 4px;
   padding-left: 0;
-  height: 34px;
+  height: 46px;
   color: #111;
   vertical-align: middle;
-  font-size: 14px;
-  line-height: 16px; }
+  font-size: 18px;
+  line-height: 20px; }
 
 .platform-ios input[type="datetime-local"], .platform-ios input[type="date"], .platform-ios input[type="month"], .platform-ios input[type="time"], .platform-ios input[type="week"], .platform-android input[type="datetime-local"], .platform-android input[type="date"], .platform-android input[type="month"], .platform-android input[type="time"], .platform-android input[type="week"] {
   padding-top: 8px; }
@@ -5717,14 +5717,14 @@ progress {
   margin: 0;
   padding: 0 12px;
   min-width: 52px;
-  min-height: 47px;
+  min-height: 54px;
   border-width: 1px;
   border-style: solid;
   border-radius: 2px;
   vertical-align: top;
   text-align: center;
   text-overflow: ellipsis;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 42px;
   cursor: pointer; }
   .button:hover {

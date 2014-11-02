@@ -1,1 +1,18 @@
 /* Empty. Add your own CSS if you like */
+
+#validation_alert,
+#welcome_alert {
+  display: block;
+  margin: 0px 0px;
+  padding: 12px 0px;
+  width: 100%;
+}
+
+.tabs-icon-top .tabs {
+  height: 72px;
+  padding-top: 6px;
+}
+
+ion-nav-bar .right-buttons button {
+  border: none;
+}
