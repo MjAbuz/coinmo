@@ -1,7 +1,7 @@
-<ion-view hide-nav-bar="true">
+<ion-view hide-nav-bar="true" class="greenbkg">
   <ion-content class="">
       <div class="row">
-          <h1>Welcome {{ currentUser ? 'back' : '' }} to Coin {{ currentUser.name }}</h1>
+          <h1 class="centered">Coin</h1>
       </div>
 
       <div ng-hide="currentUser">
@@ -11,7 +11,7 @@
                 ng-controller="RegistrationCtrl"
                  >
 
-              <div class="list centered">
+              <div class="list">
                   <label class="item item-input">
                       <input
                               type="text"

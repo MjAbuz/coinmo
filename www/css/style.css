@@ -8,6 +8,7 @@
   width: 100%;
 }
 
+
 /*.tabs-icon-top .tabs {*/
   /*height: 72px;*/
   /*padding-top: 6px;*/
@@ -15,4 +16,13 @@
 
 ion-nav-bar .right-buttons button {
   border: none;
+}
+
+.greenbkg {
+    margin-top: 7px;
+}
+
+.centered {
+    text-align: center;
+    margin: 0 auto;
 }
