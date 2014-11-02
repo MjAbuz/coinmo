@@ -1,27 +1,37 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function(AuthFactory) {
-    var vm = this;
-    vm.signupForm = {};
-    vm.submit = submit;
+.controller('RegistrationCtrl', function($scope, AuthFactory) {
+  $scope.signupForm = {};
+  console.log("hi");
+  console.log($scope.signupForm);
+  $scope.register = register;
 
 
-    ///////////
+  ///////////
 
-    function submit(){
-      AuthFactory.register(vm.signupForm)
-        .then(function(){
-          console.log('Yay successfully registered ', vm.signupForm.name)
+  function register(){
+    console.log('submit')
+    console.log($scope.signupForm)
 
-        }, function(){
-          console.log('Did not work :/')
-        })
+    AuthFactory.register($scope.signupForm)
+      .then(function(){
+        console.log('Yay successfully registered ', $scope.signupForm.name)
+
+      }, function(){
+        console.log('Did not work :/')
+      })
 
 
 
-    }
+  }
 
 })
+
+
+.controller('DashCtrl', function($scope, AuthFactory) {
+
+})
+
 
 .controller('FriendsCtrl', function(Friends) {
     var vm = this;

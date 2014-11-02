@@ -5,38 +5,44 @@
       </div>
 
 
-      <form name="signup_form" ng-submit="vm.submit()" novalidate>
+
+      <form name="signup_form"
+            ng-submit="register()"
+            novalidate
+            ng-controller="RegistrationCtrl"  >
+
           <div class="list centered">
               <label class="item item-input">
                   <input
                       type="text"
                       placeholder="Name"
+                      name="name"
                       class=""
-                      ng-model="vm.signupForm.name"
-                      ng-minlength="3"
+                      ng-model="signupForm.name"
                       required >
               </label>
               <label class="item item-input">
                   <input
                       type="tel"
+                      name="phone"
                       placeholder="Phone Number"
-                      ng-model="vm.signupForm.phone"
+                      ng-model="signupForm.phone"
                       required>
               </label>
               <label class="item item-input">
                   <input
                       type="password"
+                      name="password"
                       placeholder="Password"
-                      ng-model="vm.signupForm.password"
+                      ng-model="signupForm.password"
                       required>
               </label>
           </div>
-          <div class="error" ng-messages="signup_form.name.$error"></div>
-          <div ng-message="required">
-              Make sure you enter your name
-          </div>
+
           <div class="row responsive-sm">
-              <button type="submit" class="button button-positive">
+              <button type="submit"
+                      class="button button-positive"
+                        >
                   Sign Up
               </button>
           </div>
