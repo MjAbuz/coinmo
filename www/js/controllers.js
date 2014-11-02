@@ -1,7 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('RegistrationCtrl', function($scope, AuthFactory, $state) {
+.controller('RegistrationCtrl', function($scope, AuthFactory, SessionFactory, $state) {
   $scope.signupForm = {};
+  $scope.currentUser = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
   console.log("hi");
   console.log($scope.signupForm);
   $scope.register = register;
@@ -18,11 +19,13 @@ angular.module('starter.controllers', [])
         .then(function(res){
           console.log('got response', res);
 
-          if(res.error){
-            $scope.serverError = res.error;
+          if(res.data.error){
+            $scope.serverError = res.data.error;
 
           } else {
             console.log('Yay successfully registered ', res)
+            $scope.signupForm.guid = res.guid;
+            SessionFactory.createSession($scope.signupForm);
             $state.go('tab.account')
           }
 
@@ -55,11 +58,16 @@ angular.module('starter.controllers', [])
     $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, SessionFactory) {
 
-    $scope.user = { balance: 0.15, name: 'Jono Kassan', quid: 999993 }
-})
+    $scope.user = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
+
+    $scope.user.balance = 0.15;
+
+    console.log($scope.user);
+  })
 
 .controller('HistoryCtrl', function($scope) {
+
 
 });

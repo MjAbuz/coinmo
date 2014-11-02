@@ -50,6 +50,7 @@ angular.module('starter.services', [])
     var _sessionFactory = {};
 
     _sessionFactory.createSession = function(user) {
+      console.log('creating session');
       return $window.localStorage.user = JSON.stringify(user);
     },
 
