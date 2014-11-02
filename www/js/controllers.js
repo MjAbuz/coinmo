@@ -130,7 +130,13 @@ angular.module('starter.controllers', [])
     }
   })
 
-.controller('HistoryCtrl', function($scope) {
+.controller('HistoryCtrl', function($scope, $state) {
+    $scope.goBack = goBack;
+
+    function goBack(){
+      $state.go('tab.pay');
+
+    }
 
 
 });
