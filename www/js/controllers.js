@@ -141,7 +141,7 @@ angular.module('starter.controllers', [])
 
     $scope.user = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
 
-    $scope.user.balance = 0.15;
+    $scope.user.balance = 0.0653;
 
     $scope.signOut = signOut;
 
