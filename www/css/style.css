@@ -8,10 +8,10 @@
   width: 100%;
 }
 
-.tabs-icon-top .tabs {
-  height: 72px;
-  padding-top: 6px;
-}
+/*.tabs-icon-top .tabs {*/
+  /*height: 72px;*/
+  /*padding-top: 6px;*/
+/*}*/
 
 ion-nav-bar .right-buttons button {
   border: none;
