@@ -1,4 +1,4 @@
-var baseUrl = 'http://20585314.ngrok.com';
+var baseUrl = '';
 
 
 angular.module('starter.services', [])
