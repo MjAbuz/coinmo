@@ -98,7 +98,7 @@ angular.module('starter.services', [])
     return {
       "displayName"   : contact.name.formatted || contact.name.givenName + " " + contact.name.familyName || "Mystery Person",
       "emails"        : contact.emails || [],
-      "phone"        : contact.phoneNumbers[0] || [],
+      "phone"        : contact.phoneNumbers[0].value || [],
       "photos"        : contact.photos || []
     };
 

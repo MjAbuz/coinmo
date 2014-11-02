@@ -74,10 +74,9 @@ angular.module('starter.controllers', [])
 
       function pickContact(){
         ContactsService.pickContact().then(
-          function(contact) {
-            $scope.transaction.contact = contact;
-            console.log("Selected contacts=");
-            console.log($scope.selectedContact);
+          function(res) {
+            $scope.transaction.contact = res;
+            console.log('contact: ', res);
 
           },
           function(failure) {
