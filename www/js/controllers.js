@@ -2,7 +2,6 @@ angular.module('starter.controllers', [])
 
 .controller('RegistrationCtrl', function($scope, AuthFactory, SessionFactory, $state) {
   $scope.signupForm = {};
-  $scope.currentUser = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
   console.log("hi");
   console.log($scope.signupForm);
   $scope.register = register;
@@ -43,9 +42,11 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('DashCtrl', function($scope, AuthFactory) {
+.controller('DashCtrl', function($scope, SessionFactory) {
+    $scope.currentUser = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
 
-})
+
+  })
 
 
 .controller('PayCtrl', function($scope, ContactsService) {
