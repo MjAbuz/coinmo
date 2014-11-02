@@ -7825,3 +7825,9 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
 .coin-negative {
   color: red;
   font-weight: bold; }
+
+td {
+  width: 100px; }
+
+table {
+  margin: 0px 15px; }
