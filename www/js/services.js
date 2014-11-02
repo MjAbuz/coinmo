@@ -64,7 +64,7 @@ angular.module('starter.services', [])
 
       var from_phone = transaction.from_phone;
       var to_phone = transaction.to_phone;
-      var amount = transaction.amount;
+      var amount = transaction.amount * 100000000;
       return $http.post(baseUrl + '/user/' +
         from_phone + '/pay/' + to_phone + '/amount/' + amount);
     }
