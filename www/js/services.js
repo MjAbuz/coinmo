@@ -34,7 +34,7 @@ angular.module('starter.services', [])
     var _authFactory = {};
 
     _authFactory.register = function(user) {
-      return $http.post(baseUrl + '/user', user);
+      return $http.post(baseUrl + '/account', user);
     }
 
     _authFactory.login = function(user) {
