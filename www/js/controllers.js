@@ -79,13 +79,23 @@ angular.module('starter.controllers', [])
     $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('AccountCtrl', function($scope, SessionFactory) {
+.controller('AccountCtrl', function($scope, SessionFactory, $state) {
 
     $scope.user = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
 
     $scope.user.balance = 0.15;
 
+    $scope.signOut = signOut;
+
     console.log($scope.user);
+
+    ////////
+
+    function signOut(){
+      SessionFactory.deleteSession();
+      $state.go('tab.dash');
+
+    }
   })
 
 .controller('HistoryCtrl', function($scope) {
