@@ -21,13 +21,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-
-  //Enable cross domain calls
-  $httpProvider.defaults.useXDomain = true;
-
-  //Remove the header used to identify ajax call  that would prevent CORS from working
-  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+.config(function($stateProvider, $urlRouterProvider) {
 
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -55,11 +49,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.pay', {
+      url: '/pay',
       views: {
         'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
+          templateUrl: 'templates/tab-pay.html',
           controller: 'FriendsCtrl',
           controllerAs: 'vm'
         }

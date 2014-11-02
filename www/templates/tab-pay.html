@@ -1,0 +1,9 @@
+<ion-view title="Pay">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="friend in vm.friends" type="item-text-wrap" href="#/tab/pay/{{friend.id}}">
+        {{friend.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
