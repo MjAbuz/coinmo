@@ -33,8 +33,10 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('FriendsCtrl', function(Friends) {
+.controller('PayCtrl', function(Friends) {
     var vm = this;
+
+    console.log('loads')
     vm.friends = Friends.all();
 })
 

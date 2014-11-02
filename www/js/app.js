@@ -52,9 +52,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab.pay', {
       url: '/pay',
       views: {
-        'tab-friends': {
+        'tab-pay': {
           templateUrl: 'templates/tab-pay.html',
-          controller: 'FriendsCtrl',
+          controller: 'PayCtrl',
           controllerAs: 'vm'
         }
       }
