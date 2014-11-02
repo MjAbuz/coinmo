@@ -39,14 +39,14 @@
                   </label>
               </div>
               <div class="row responsive-sm" ng-show="signup_form.submitted && signup_form.$invalid">
-                  <div class="card card-error">
+                  <div class="card card-error" id="validation_error" style="width: 100%; border: none; box-shadow: none">
                       <div class="error" ng-show="signup_form.name.$error.required"> Name is Required</div>
                       <div class="error" ng-show="signup_form.phone.$error.required"> Phone Number is Required</div>
                       <div class="error" ng-show="signup_form.password.$error.required"> Password is Required </div>
                   </div>
               </div>
               <div class="row responsive-sm" ng-show="serverError">
-                  <div class="card card-error">
+                  <div class="card card-error" id="welcome_alert" style="width: 100%; border: none; box-shadow: none">
                       <div class="error"> {{ serverError }}</div>
                   </div>
               </div>

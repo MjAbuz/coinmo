@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
 
           } else {
             console.log('Yay successfully registered ', res)
-            $scope.signupForm.guid = res.guid;
+            $scope.signupForm.guid = res.data.guid;
             SessionFactory.createSession($scope.signupForm);
             $state.go('tab.account')
           }
@@ -100,7 +100,7 @@ angular.module('starter.controllers', [])
 
       function sendCoin(){
 
-        var to_phone = $scope.transaction.contact.phones ? $scope.transaction.contact.phones[0].value : $scope.transaction.contact.displayName;
+        var to_phone = $scope.transaction.contact.phone;
 
         var trans = {
           from_phone: currentUser.phone,
@@ -108,9 +108,17 @@ angular.module('starter.controllers', [])
           amount: $scope.transaction.amount
         }
         TransactionService.sendCoin(trans)
-          .then(function(data){
+          .then(function(res){
+            console.log('send transaction got sent to the server! ', res.data)
 
-            console.log('send transaction got sent to the server! ', data)
+            if(res.data && res.data.error){
+              $scope.serverError = res.data.error;
+            } else {
+
+              $scope.serverSuccess = "Your transaction went through!";
+              console.log('transaction went through! ', res);
+            }
+
 
           }, function(){
             console.log('ugh cannot reach server for sendCoin!')

@@ -9,13 +9,12 @@
 	  <div class = "row">
 	  	<div class = "col col-60">
 	  		<label class="item item-input">
-	    		<input type="tel" placeholder="Phone or Name" ng-click="pickContact()" ng-model="transaction.contact.displayName">
+	    		<input type="tel" placeholder="Phone or Name" ng-click="pickContact()" ng-model="transaction.contact.phone">
 	  		</label>
-            {{ transaction }}
 	  	</div>
 	  	<div class = "col">
 	  		<label class="item item-input">
-                 <i class="icon ion-social-usd placeholder-icon"></i>
+                 <i class="icon ion-social-bitcoin placeholder-icon"></i>
 	    		 <input type="tel" placeholder="0.0" ng-model="transaction.amount" class="amount-input">
 	  		</label>
 	  	</div>
@@ -29,6 +28,17 @@
 	  		</label>
 	  	</div>
 	  </div>
+
+      <div class="row responsive-sm" ng-show="serverError">
+          <div class="card card-error">
+              <div class="error"> {{ serverError }}</div>
+          </div>
+      </div>
+      <div class="row responsive-sm" ng-show="serverSuccess">
+          <div class="card card-success">
+              <div class="error"> {{ serverSuccess }}</div>
+          </div>
+      </div>
 
 	  <div class = "row">
 	  	<div class = "col"> 
