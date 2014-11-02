@@ -114,7 +114,9 @@ angular.module('starter.controllers', [])
             if(res.data && res.data.error){
               $scope.serverError = res.data.error;
             } else {
-              console.log('transaction went through! ', res.data);
+
+              $scope.serverSuccess = "Your transaction went through!";
+              console.log('transaction went through! ', res);
             }
 
 

@@ -7818,6 +7818,9 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
 .card-error {
   color: red; }
 
+.card-success {
+  color: green; }
+
 .coin-positive {
   color: blue;
   font-weight: bold; }
