@@ -54,7 +54,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-pay': {
           templateUrl: 'templates/tab-pay.html',
-          controller: 'PayCtrl'
+          controller: 'PayCtrl',
+          resolve: {
+            SignedIn: ['SessionFactory', function(SessionFactory) {
+              return  SessionFactory.checkSession();
+            }]
+          }
         }
       }
     })
@@ -91,7 +96,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/dash');
+  $urlRouterProvider.otherwise('/tab/pay');
 
 });
 

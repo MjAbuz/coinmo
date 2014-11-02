@@ -49,8 +49,11 @@ angular.module('starter.controllers', [])
   })
 
 
-.controller('PayCtrl', function($scope, ContactsService, TransactionService) {
+.controller('PayCtrl', function($scope, ContactsService, TransactionService, $state, SignedIn) {
 
+    if(!SignedIn){
+      $state.go('dash')
+    }
     console.log('payctrl loads')
     $scope.transaction = {
       contact: {
