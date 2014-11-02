@@ -10,8 +10,8 @@ To install and run this project, follow the below steps:
 ####1. Clone Repo
 `git clone https://github.com/soltran/coinmo
 
-####2. Install Bower Modules
-`bower install`
+####2. Install Cordova Ionic  
+`npm install -g cordova ionic`
 
-####3. Install Node Modules
-`npm install`
+####3. Start Ionic Server
+`ionic serve`
