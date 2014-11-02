@@ -43,7 +43,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-dash': {
           templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl'
+          controller: 'DashCtrl',
+          controllerAs: 'vm'
         }
       }
     })
@@ -53,7 +54,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-friends': {
           templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+          controller: 'FriendsCtrl',
+          controllerAs: 'vm'
         }
       }
     })
@@ -62,7 +64,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-friends': {
           templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+          controller: 'FriendDetailCtrl',
+          controllerAs: 'vm'
         }
       }
     })
@@ -72,7 +75,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-account': {
           templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+          controller: 'AccountCtrl',
+          controllerAs: 'vm'
         }
       }
     });
