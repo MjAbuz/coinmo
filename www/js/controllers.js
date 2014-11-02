@@ -35,16 +35,14 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('PayCtrl', function(Friends) {
-    var vm = this;
+.controller('PayCtrl', function($scope, Friends) {
 
     console.log('loads')
-    vm.friends = Friends.all();
+    $scope.friends = Friends.all();
 })
 
-.controller('FriendDetailCtrl', function($stateParams, Friends) {
-    var vm = this;
-    vm.friend = Friends.get($stateParams.friendId);
+.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
+    $scope.friend = Friends.get($stateParams.friendId);
 })
 
 .controller('AccountCtrl', function($scope) {

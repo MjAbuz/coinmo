@@ -44,7 +44,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-dash': {
           templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl',
+          controller: 'DashCtrl'
         }
       }
     })
@@ -54,8 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-pay': {
           templateUrl: 'templates/tab-pay.html',
-          controller: 'PayCtrl',
-          controllerAs: 'vm'
+          controller: 'PayCtrl'
         }
       }
     })
@@ -64,8 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-friends': {
           templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl',
-          controllerAs: 'vm'
+          controller: 'FriendDetailCtrl'
         }
       }
     })
