@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
 
           } else {
             console.log('Yay successfully registered ', res)
-            $scope.signupForm.guid = res.guid;
+            $scope.signupForm.guid = res.data.guid;
             SessionFactory.createSession($scope.signupForm);
             $state.go('tab.account')
           }
