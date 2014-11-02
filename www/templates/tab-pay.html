@@ -14,7 +14,7 @@
 	  	</div>
 	  	<div class = "col">
 	  		<label class="item item-input">
-                 <i class="icon ion-social-usd placeholder-icon"></i>
+                 <i class="icon ion-social-bitcoin placeholder-icon"></i>
 	    		 <input type="tel" placeholder="0.0" ng-model="transaction.amount" class="amount-input">
 	  		</label>
 	  	</div>
@@ -28,6 +28,12 @@
 	  		</label>
 	  	</div>
 	  </div>
+
+      <div class="row responsive-sm" ng-show="serverError">
+          <div class="card card-error">
+              <div class="error"> {{ serverError }}</div>
+          </div>
+      </div>
 
 	  <div class = "row">
 	  	<div class = "col"> 

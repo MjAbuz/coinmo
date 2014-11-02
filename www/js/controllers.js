@@ -108,9 +108,15 @@ angular.module('starter.controllers', [])
           amount: $scope.transaction.amount
         }
         TransactionService.sendCoin(trans)
-          .then(function(data){
+          .then(function(res){
+            console.log('send transaction got sent to the server! ', res.data)
 
-            console.log('send transaction got sent to the server! ', data)
+            if(res.data && res.data.error){
+              $scope.serverError = res.data.error;
+            } else {
+              console.log('transaction went through! ', res.data);
+            }
+
 
           }, function(){
             console.log('ugh cannot reach server for sendCoin!')
