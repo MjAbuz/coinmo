@@ -61,7 +61,12 @@ angular.module('starter.services', [])
 
     _transactionFactory.sendCoin = function(transaction) {
       console.log('send coin: ', transaction);
-      return $http.post(baseUrl + '/transaction/send', transaction);
+
+      var from_phone = transaction.from_phone;
+      var to_phone = transaction.to_phone;
+      var amount = transaction.amount;
+      return $http.post(baseUrl + '/user/' +
+        from_phone + '/pay/' + to_phone + '/amount/' + amount);
     }
 
     return _transactionFactory;

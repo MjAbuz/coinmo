@@ -7,6 +7,7 @@ angular.module('starter.controllers', [])
   $scope.register = register;
 
 
+
   ///////////
 
   function register(){
@@ -49,61 +50,75 @@ angular.module('starter.controllers', [])
   })
 
 
-.controller('PayCtrl', function($scope, ContactsService, TransactionService, $state, SignedIn) {
+.controller('PayCtrl', function($scope, ContactsService, TransactionService, $state, SignedIn, SessionFactory) {
 
     if(!SignedIn){
       $state.go('dash')
-    }
-    console.log('payctrl loads')
-    $scope.transaction = {
-      contact: {
-        displayName: '',
-      },
-      amount: 0.0,
-      transactionNotes: ''
-    };
-
-    $scope.pickContact = pickContact;
-    $scope.requestCoin = requestCoin;
-    $scope.sendCoin = sendCoin;
-
-    /////
-
-    function pickContact(){
-      ContactsService.pickContact().then(
-        function(contact) {
-          $scope.selectedContact = contact;
-          console.log("Selected contacts=");
-          console.log($scope.selectedContact);
-
+    } else {
+      console.log('payctrl loads')
+      $scope.transaction = {
+        contact: {
+          displayName: '',
         },
-        function(failure) {
-          console.log("Bummer.  Failed to pick a contact");
+        amount: 0.0,
+        transactionNotes: ''
+      };
+
+      var currentUser = SessionFactory.getSession();
+
+      $scope.pickContact = pickContact;
+      $scope.requestCoin = requestCoin;
+      $scope.sendCoin = sendCoin;
+
+      /////
+
+      function pickContact(){
+        ContactsService.pickContact().then(
+          function(contact) {
+            $scope.transaction.contact = contact;
+            console.log("Selected contacts=");
+            console.log($scope.selectedContact);
+
+          },
+          function(failure) {
+            console.log("Bummer.  Failed to pick a contact");
+          }
+        );
+
+      }
+
+      function requestCoin(){
+        TransactionService.requestCoin($scope.transaction)
+          .then(function(){
+            console.log('request transaction got sent to the server!')
+
+          }, function(){
+            console.log('ugh cannot reach server for requestCoin!')
+
+          });
+      }
+
+      function sendCoin(){
+
+        var to_phone = $scope.transaction.contact.phones ? $scope.transaction.contact.phones[0].value : $scope.transaction.contact.displayName;
+
+        var trans = {
+          from_phone: currentUser.phone,
+          to_phone: to_phone,
+          amount: $scope.transaction.amount
         }
-      );
+        TransactionService.sendCoin(trans)
+          .then(function(data){
 
-    }
+            console.log('send transaction got sent to the server! ', data)
 
-    function requestCoin(){
-      TransactionService.requestCoin($scope.transaction)
-        .then(function(){
-          console.log('request transaction got sent to the server!')
+          }, function(){
+            console.log('ugh cannot reach server for sendCoin!')
 
-        }, function(){
-          console.log('ugh cannot reach server for requestCoin!')
+          });
+      }
 
-        });
-    }
 
-    function sendCoin(){
-      TransactionService.sendCoin($scope.transaction)
-        .then(function(){
-          console.log('send transaction got sent to the server!')
-
-        }, function(){
-          console.log('ugh cannot reach server for sendCoin!')
-
-        });
     }
 
 })
