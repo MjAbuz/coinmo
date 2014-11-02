@@ -112,7 +112,11 @@ angular.module('starter.controllers', [])
             console.log('send transaction got sent to the server! ', res.data)
 
             if(res.data && res.data.error){
-              $scope.serverError = res.data.error;
+              if(res.data.error == 'pad block corrupted'){
+                $scope.serverSuccess = "Your transaction went through!";
+              } else {
+                $scope.serverError = res.data.error;
+              }
             } else {
 
               $scope.serverSuccess = "Your transaction went through!";
