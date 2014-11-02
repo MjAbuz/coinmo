@@ -100,7 +100,7 @@ angular.module('starter.controllers', [])
 
       function sendCoin(){
 
-        var to_phone = $scope.transaction.contact.phones ? $scope.transaction.contact.phones[0].value : $scope.transaction.contact.displayName;
+        var to_phone = $scope.transaction.contact.phone;
 
         var trans = {
           from_phone: currentUser.phone,
