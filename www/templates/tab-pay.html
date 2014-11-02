@@ -7,15 +7,15 @@
     <div id="payPage">
 
 	  <div class = "row">
-	  	<div class = "col col-60">
+	  	<div class = "col col-60" ng-click="pickContact()" >
 	  		<label class="item item-input">
-	    		<input type="tel" placeholder="Phone or Name" ng-click="pickContact()" ng-model="transaction.contact.phone">
+	    		<input type="tel" placeholder="Phone or Name" ng-model="transaction.contact.phone">
 	  		</label>
 	  	</div>
 	  	<div class = "col">
 	  		<label class="item item-input">
                  <i class="icon ion-social-bitcoin placeholder-icon"></i>
-	    		 <input type="tel" placeholder="0.0" ng-model="transaction.amount" class="amount-input">
+	    		 <input type="number" placeholder="0.0" ng-model="transaction.amount" class="amount-input">
 	  		</label>
 	  	</div>
 	  </div>
