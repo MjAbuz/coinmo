@@ -8,7 +8,7 @@ money 20/20
 To install and run this project, follow the below steps:
 
 ####1. Clone Repo
-`git clone https://github.com/uknoiluv/angularGoogleMap`
+`git clone https://github.com/soltran/coinmo
 
 ####2. Install Bower Modules
 `bower install`
