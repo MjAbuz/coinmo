@@ -48,10 +48,30 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('PayCtrl', function($scope, Friends) {
+.controller('PayCtrl', function($scope, ContactsService) {
 
-    console.log('loads')
-    $scope.friends = Friends.all();
+    console.log('payctrl loads')
+    $scope.selectedContact = {};
+
+    $scope.pickContact = pickContact;
+
+    /////
+
+    function pickContact(){
+      ContactsService.pickContact().then(
+        function(contact) {
+          $scope.selectedContact = contact;
+          console.log("Selected contacts=");
+          console.log($scope.selectedContact);
+
+        },
+        function(failure) {
+          console.log("Bummer.  Failed to pick a contact");
+        }
+      );
+
+    }
+
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
