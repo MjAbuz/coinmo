@@ -18,8 +18,8 @@ angular.module('starter.controllers', [])
         .then(function(res){
           console.log('got response', res);
 
-          if(res.error){
-            $scope.serverError = res.error;
+          if(res.data.error){
+            $scope.serverError = res.data.error;
 
           } else {
             console.log('Yay successfully registered ', res)
