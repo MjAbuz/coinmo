@@ -49,7 +49,7 @@ angular.module('starter.controllers', [])
   })
 
 
-.controller('PayCtrl', function($scope, ContactsService) {
+.controller('PayCtrl', function($scope, ContactsService, TransactionService) {
 
     console.log('payctrl loads')
     $scope.transaction = {
@@ -61,6 +61,8 @@ angular.module('starter.controllers', [])
     };
 
     $scope.pickContact = pickContact;
+    $scope.requestCoin = requestCoin;
+    $scope.sendCoin = sendCoin;
 
     /////
 
@@ -79,11 +81,35 @@ angular.module('starter.controllers', [])
 
     }
 
+    function requestCoin(){
+      TransactionService.requestCoin($scope.transaction)
+        .then(function(){
+          console.log('request transaction got sent to the server!')
+
+        }, function(){
+          console.log('ugh cannot reach server for requestCoin!')
+
+        });
+    }
+
+    function sendCoin(){
+      TransactionService.sendCoin($scope.transaction)
+        .then(function(){
+          console.log('send transaction got sent to the server!')
+
+        }, function(){
+          console.log('ugh cannot reach server for sendCoin!')
+
+        });
+    }
+
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
     $scope.friend = Friends.get($stateParams.friendId);
 })
+
+
 
 .controller('AccountCtrl', function($scope, SessionFactory, $state) {
 
