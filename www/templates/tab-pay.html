@@ -1,9 +1,31 @@
-<ion-view title="Pay">
+<ion-view title="New Transaction">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="friend in vm.friends" type="item-text-wrap" href="#/tab/pay/{{friend.id}}">
-        {{friend.name}}
-      </ion-item>
-    </ion-list>
+
+
+    <div id="payPage">
+
+	  <ion-list>
+	    <ion-item ng-repeat="friend in vm.friends" type="item-text-wrap" href="#/tab/pay/{{friend.id}}">
+	      {{friend.name}}
+	    </ion-item>
+	  </ion-list>
+
+	  <div class = "row">
+	  	<div class = "col col-75">
+	  		<label class="item item-input">
+	    		<input type="text" placeholder="Phone, Name">
+	  		</label>
+	  	</div>
+	  	<div class = "col col-20">
+	  		<label class="item item-input">
+	    		 B⃦<input type="text" placeholder="   0.0">
+	  		</label>
+	  	</div>
+	  </div>
+
+
+
+	</div>
+
   </ion-content>
 </ion-view>
