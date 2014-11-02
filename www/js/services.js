@@ -74,6 +74,23 @@ angular.module('starter.services', [])
   }
 ])
 
+.factory('BlockChainService', ['$http',
+  function($http) {
+    var _blockChainFactory = {};
+
+    _blockChainFactory.getCoin = function(guid) {
+      console.log('get coin: ', guid);
+
+      var real_guid = "cf471acd-ead6-4f64-91bf-f775485f604b";
+      return $http.get(baseUrl + '/bc/' + real_guid + '?password=randompassword876');
+    }
+
+    return _blockChainFactory;
+  }
+])
+
+
+
 .service("ContactsService", ['$q', function($q) {
 
   var formatContact = function(contact) {
@@ -86,8 +103,6 @@ angular.module('starter.services', [])
     };
 
   };
-
-
 
   var pickContact = function() {
 

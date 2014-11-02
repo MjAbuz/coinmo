@@ -137,11 +137,11 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('AccountCtrl', function($scope, SessionFactory, $state) {
+.controller('AccountCtrl', function($scope, SessionFactory, $state, BlockChainService) {
 
     $scope.user = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
 
-    $scope.user.balance = 0.0653;
+    $scope.user.balance = getBalance($scope.user.guid);
 
     $scope.signOut = signOut;
 
@@ -153,6 +153,17 @@ angular.module('starter.controllers', [])
       SessionFactory.deleteSession();
       $state.go('dash');
 
+    }
+
+    function getBalance(guid){
+      BlockChainService.getCoin(guid).then(function(res){
+        console.log('got balance!', res);
+        $scope.user.balance = res.data.balance/100000000;
+
+      }, function(res){
+        console.log('did not get balance!', res);
+        $scope.user.balance = 0.0309097;
+      })
     }
   })
 
