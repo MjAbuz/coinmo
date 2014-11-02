@@ -58,7 +58,11 @@ angular.module('starter.controllers', [])
     $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, SessionFactory) {
 
-    $scope.user = { balance: 0.15, name: 'Jono Kassan', quid: 999993 }
+    $scope.user = SessionFactory.checkSession() ? SessionFactory.getSession() : null;
+
+    $scope.user.balance = 0.15;
+
+    console.log($scope.user);
 });
