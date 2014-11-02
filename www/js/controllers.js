@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
 .controller('PayCtrl', function($scope, ContactsService) {
 
     console.log('payctrl loads')
-    $scope.selectedContact = {};
+    $scope.selectedContact = { phone:''};
 
     $scope.pickContact = pickContact;
 
