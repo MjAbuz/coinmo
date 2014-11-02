@@ -48,4 +48,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
+    var vm = this;
+
+    vm.user = { balance: 0.15, name: 'Jono Kassan', quid: 999993 }
 });
