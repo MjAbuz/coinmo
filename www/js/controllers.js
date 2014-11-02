@@ -93,7 +93,7 @@ angular.module('starter.controllers', [])
 
     function signOut(){
       SessionFactory.deleteSession();
-      $state.go('tab.dash');
+      $state.go('dash');
 
     }
   })
