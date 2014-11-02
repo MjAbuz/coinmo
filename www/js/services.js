@@ -1,4 +1,4 @@
-var baseUrl = '';
+var baseUrl = 'http://localhost:3000';
 
 
 angular.module('starter.services', [])
@@ -34,7 +34,7 @@ angular.module('starter.services', [])
     var _authFactory = {};
 
     _authFactory.register = function(user) {
-      return $http.post(baseUrl + '/api/v1/auth/register', user);
+      return $http.post(baseUrl + '/user', user);
     }
 
     _authFactory.login = function(user) {
